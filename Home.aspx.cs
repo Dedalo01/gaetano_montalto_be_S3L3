@@ -15,14 +15,8 @@ namespace eserS3L3
         protected void Save_Choices_Btn_Click(object sender, EventArgs e)
         {
             Response.Write($"Nome:{firstName.Text}, Cognome:{lastName.Text}, Sala:{Sala.Text}, Tipo di biglietto:{TipoBiglietto.Text}");
-            string connectionString = ConfigurationManager.ConnectionStrings["MSI\\SQLEXPRESS"].ToString();
 
-            int TipoBigliettoId;
-            switch (TipoBiglietto)
-            {
-
-            }
-
+            string connectionString = ConfigurationManager.ConnectionStrings["TicketsDB"].ToString();
             SqlConnection conn = new SqlConnection(connectionString);
 
             try
@@ -30,7 +24,10 @@ namespace eserS3L3
                 conn.Open();
                 Response.Write("La connessione è stata aperta correttamente");
 
-                SqlCommand cmdInsert = new SqlCommand($"INSERT INTO DatiBiglietto VALUES('{firstName.Text}', '{lastName.Text}', 3, 2)");
+                SqlCommand registerTicket = new SqlCommand($"INSERT INTO DatiBiglietto (Nome, Cognome, SalaId, TipoBigliettoId) VALUES('{firstName.Text}', '{lastName.Text}', {Sala.Text}, {TipoBiglietto.Text})", conn);
+                registerTicket.ExecuteScalar();
+
+
             }
 
             catch (Exception ex)

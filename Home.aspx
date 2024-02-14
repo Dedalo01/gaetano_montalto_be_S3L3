@@ -14,15 +14,15 @@
     
     <h2>Seleziona Sala</h2>
     <asp:RadioButtonList ID="Sala" runat="server">
-        <asp:ListItem Selected="True">SALA NORD</asp:ListItem>
-        <asp:ListItem>SALA EST</asp:ListItem>
-        <asp:ListItem>SALA SUD</asp:ListItem>
+        <asp:ListItem Selected="True" Value="1">SALA NORD</asp:ListItem>
+        <asp:ListItem Value="2">SALA EST</asp:ListItem>
+        <asp:ListItem Value="3">SALA SUD</asp:ListItem>
     </asp:RadioButtonList>
     
  <h3>Seleziona tipologia biglietto:</h3>
     <asp:RadioButtonList ID="TipoBiglietto" runat="server">
-        <asp:ListItem Selected="True">Intero</asp:ListItem>
-        <asp:ListItem>Ridotto</asp:ListItem>
+        <asp:ListItem Selected="True" Value="1">Intero</asp:ListItem>
+        <asp:ListItem Value="2">Ridotto</asp:ListItem>
     </asp:RadioButtonList>
     <asp:Button ID="DataBtn" runat="server" Text="Save Choices" OnClick="Save_Choices_Btn_Click"/>
 </asp:Content>
